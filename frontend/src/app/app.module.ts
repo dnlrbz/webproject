@@ -9,8 +9,6 @@ import {FlexModule} from "@angular/flex-layout";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
-import {APP_BASE_HREF} from "@angular/common";
-import {environment} from "../environments/environment";
 import {MatTableModule} from "@angular/material/table";
 import {BookListComponent} from './book/book-list/book-list.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -18,12 +16,15 @@ import {BookService} from "./book/service/book.service";
 import {MatListModule} from "@angular/material/list";
 import {HeaderComponent} from './header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {BookItemComponent} from './book/book-item/book-item.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     HeaderComponent,
+    BookItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,10 +39,10 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     HttpClientModule,
     MatListModule,
     MatToolbarModule,
+    MatIconModule,
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: environment.BASE_PATH},
-    BookService,
+    BookService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,2 +1,10 @@
-<p>book-list works!</p>
+<ng-container *ngIf="books$ | async as books">
+  <mat-list *ngFor="let book of books">
+    <mat-list-item>
+      <book-item [book]="book"></book-item>
+    </mat-list-item>
+  </mat-list>
+</ng-container>
+
+
 

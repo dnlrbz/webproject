@@ -10,14 +10,13 @@ import {Book} from "../domain/book";
 })
 export class BookListComponent implements OnInit {
 
-  books: Observable<Book[]>;
+  public books$: Observable<Book[]>;
 
   constructor(private bookService: BookService) {
   }
 
   ngOnInit(): void {
-    this.bookService.getBooks()
-    .subscribe((data: Book[]) => console.log(data));
+    this.books$ = this.bookService.getBooks();
   }
 
 }
