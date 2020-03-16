@@ -16,11 +16,14 @@ import {BookListComponent} from './book/book-list/book-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {BookService} from "./book/service/book.service";
 import {MatListModule} from "@angular/material/list";
+import {HeaderComponent} from './header/header.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import {MatListModule} from "@angular/material/list";
     ReactiveFormsModule,
     MatTableModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    MatToolbarModule,
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: environment.BASE_PATH},
