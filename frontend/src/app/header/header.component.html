@@ -1,3 +1,10 @@
 <mat-toolbar color="primary">
-  <p>Book store</p>
+  <button mat-button (click)="navigateToHome()">
+    <mat-icon>book</mat-icon>
+    Book store
+  </button>
+  <button mat-button (click)="navigateToHome()">
+    <mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon>
+    <span class="button-text">Cart</span>
+  </button>
 </mat-toolbar>

@@ -6,4 +6,5 @@ export class Book extends BaseEntity {
   price: number;
   imageUrl: string;
   rating: number;
+  description: string;
 }
