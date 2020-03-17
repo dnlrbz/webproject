@@ -3,6 +3,7 @@ package com.example.backend.book.domain;
 import com.example.backend.base.domain.BaseEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +19,9 @@ public class Book extends BaseEntity {
     @Column
     private String imageUrl;
 
+    @Lob
+    private String description;
+
     private int rating;
     private Double price;
 
@@ -25,12 +29,13 @@ public class Book extends BaseEntity {
     {
     }
 
-
-    public Book(String title, String author, String imageUrl, int rating, Double price)
+    public Book(String title, String author, String imageUrl, String description, int rating,
+        Double price)
     {
         this.title = title;
         this.author = author;
         this.imageUrl = imageUrl;
+        this.description = description;
         this.rating = rating;
         this.price = price;
     }
@@ -48,6 +53,11 @@ public class Book extends BaseEntity {
     public String getImageUrl()
     {
         return imageUrl;
+    }
+
+    public String getDescription()
+    {
+        return description;
     }
 
     public int getRating()

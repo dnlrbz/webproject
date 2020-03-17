@@ -1,20 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Book} from "../domain/book";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'book-item',
   templateUrl: './book-item.component.html',
   styleUrls: ['./book-item.component.scss']
 })
-export class BookItemComponent implements OnInit {
+export class BookItemComponent {
 
   @Input()
   book: Book;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
-  ngOnInit(): void {
+  navigateToBookView(id: number) {
+    this.router.navigateByUrl("book/" + id);
   }
+
 
 }

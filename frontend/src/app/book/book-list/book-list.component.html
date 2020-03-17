@@ -1,10 +1,6 @@
-<ng-container *ngIf="books$ | async as books">
-  <mat-list *ngFor="let book of books">
-    <mat-list-item>
-      <book-item [book]="book"></book-item>
-    </mat-list-item>
-  </mat-list>
-</ng-container>
+<div *ngIf="books$ | async as books" fxLayout="row" fxLayoutAlign="space-around">
+  <book-item *ngFor="let book of books" [book]="book"></book-item>
+</div>
 
 
 

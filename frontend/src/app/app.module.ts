@@ -18,6 +18,7 @@ import {HeaderComponent} from './header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {BookItemComponent} from './book/book-item/book-item.component';
 import {MatIconModule} from "@angular/material/icon";
+import { BookDetailComponent } from './book/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatIconModule} from "@angular/material/icon";
     BookListComponent,
     HeaderComponent,
     BookItemComponent,
+    BookDetailComponent,
   ],
   imports: [
     BrowserModule,

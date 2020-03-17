@@ -20,6 +20,10 @@ export class BookService {
     );
   }
 
+  getBookById(id: number): Observable<Book> {
+    return this.http.get<Book>(environment.BASE_PATH + "/books/" + id);
+  }
+
 
 }
 
@@ -29,3 +33,6 @@ interface ResponseBooks {
     books: Book[];
   }
 }
+
+
+
