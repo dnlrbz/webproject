@@ -22,6 +22,7 @@ import {BookDetailComponent} from './book/book-detail/book-detail.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatBadgeModule} from "@angular/material/badge";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatBadgeModule} from "@angular/material/badge";
     MatGridListModule,
     MatExpansionModule,
     MatBadgeModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     BookService

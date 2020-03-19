@@ -1,6 +1,9 @@
-<div *ngIf="books$ | async as books" fxLayout="row" fxLayoutAlign="space-around">
+<div *ngIf="books$ | async as books" fxLayout="row"
+     fxLayoutAlign="space-around">
   <book-item *ngFor="let book of books" [book]="book"></book-item>
 </div>
+<mat-spinner *ngIf="bookService.isLoading"></mat-spinner>
+
 
 
 
