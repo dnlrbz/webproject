@@ -8,7 +8,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FlexModule} from "@angular/flex-layout";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatTableModule} from "@angular/material/table";
 import {BookListComponent} from './book/book-list/book-list.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -23,6 +23,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {BookFilterPipe} from './book/filter/book-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     HeaderComponent,
     BookItemComponent,
     BookDetailComponent,
+    BookFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatExpansionModule,
     MatBadgeModule,
     MatProgressSpinnerModule,
+    FormsModule,
   ],
   providers: [
     BookService

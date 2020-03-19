@@ -13,7 +13,7 @@ export class BookDetailComponent implements OnInit {
 
   book$: Observable<Book>;
 
-  constructor(private route: ActivatedRoute, private bookService: BookService) {
+  constructor(private route: ActivatedRoute, public bookService: BookService) {
   }
 
   ngOnInit(): void {

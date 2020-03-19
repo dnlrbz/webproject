@@ -1,8 +1,15 @@
-<div *ngIf="books$ | async as books" fxLayout="row"
-     fxLayoutAlign="space-around">
-  <book-item *ngFor="let book of books" [book]="book"></book-item>
+<div fxLayout="column">
+  <mat-form-field appearance="outline">
+    <mat-label>Search books</mat-label>
+    <input matInput [(ngModel)]="filterValue">
+  </mat-form-field>
+  <div *ngIf="books$ | async | bookFilter: filterValue as books" fxLayout="row"
+       fxLayoutAlign="space-around">
+    <book-item *ngFor="let book of books" [book]="book"></book-item>
+  </div>
 </div>
 <mat-spinner *ngIf="bookService.isLoading"></mat-spinner>
+
 
 
 

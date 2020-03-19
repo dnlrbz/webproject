@@ -9,7 +9,8 @@ import {Book} from "../domain/book";
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-
+  public filterValue: string;
+  
   public books$: Observable<Book[]>;
 
   constructor(public bookService: BookService) {
