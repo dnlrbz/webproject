@@ -4,7 +4,7 @@
     Book store
   </button>
   <button mat-button (click)="navigateToHome()">
-    <mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon>
+    <mat-icon [matBadge]="totalItemsAmount | async" matBadgeColor="warn">shopping_cart</mat-icon>
     <span class="button-text">Cart</span>
   </button>
 </mat-toolbar>

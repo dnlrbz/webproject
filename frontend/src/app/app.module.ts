@@ -24,6 +24,11 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {BookFilterPipe} from './book/filter/book-filter.pipe';
+import {StoreModule} from "@ngrx/store";
+import {bookReducer} from "./store/reducers/book-reducer";
+import {EffectsModule} from "@ngrx/effects";
+import {BookEffects} from "./store/effects/book-effects";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 @NgModule({
   declarations: [
@@ -53,6 +58,9 @@ import {BookFilterPipe} from './book/filter/book-filter.pipe';
     MatBadgeModule,
     MatProgressSpinnerModule,
     FormsModule,
+    StoreModule.forRoot({bookReducer}),
+    EffectsModule.forRoot([BookEffects]),
+    StoreDevtoolsModule.instrument({maxAge: 25})
   ],
   providers: [
     BookService

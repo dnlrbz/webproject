@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {BookService} from "../service/book.service";
 import {Observable} from "rxjs";
 import {Book} from "../domain/book";
+import {Store} from "@ngrx/store";
+import {requestBooks} from "../../store/actions/book-actions";
+import {State} from "../../store/reducers/book-reducer";
+import {allBooks} from "../../store/selectors/book-selectors";
 
 @Component({
   selector: 'book-list',
@@ -10,14 +14,15 @@ import {Book} from "../domain/book";
 })
 export class BookListComponent implements OnInit {
   public filterValue: string;
-  
-  public books$: Observable<Book[]>;
 
-  constructor(public bookService: BookService) {
+  public books$: Observable<Book[]> = this.store.select(allBooks);
+
+  constructor(public bookService: BookService, private store: Store<State>) {
   }
 
   ngOnInit(): void {
-    this.books$ = this.bookService.getBooks();
+    this.store.dispatch(requestBooks());
+
   }
 
 }
