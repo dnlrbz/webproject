@@ -1,7 +1,7 @@
 import {Book} from "../../book/domain/book";
 import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
 import {Action, createReducer, on} from "@ngrx/store";
-import {addBookToCart} from "../actions/cart-actions";
+import {addBookToCart, decreaseItem, increaseItem} from "../actions/cart-actions";
 
 export interface CartItem extends Book {
   count: number;
@@ -32,6 +32,31 @@ const reducer = createReducer(
           }, state);
         }
     ),
+
+    on(increaseItem, (state, {itemId}) => {
+      return cartItemAdapter.updateOne({
+        id: itemId,
+        changes: {
+          ...state.entities[itemId],
+          count: state.entities[itemId].count + 1
+        }
+      }, state);
+    }),
+
+    on(decreaseItem, (state, {itemId}) => {
+      const cartItem = state.entities[itemId];
+      if (cartItem && cartItem.count === 1) {
+        return cartItemAdapter.removeOne(itemId, state);
+      } else {
+        return cartItemAdapter.updateOne({
+          id: itemId,
+          changes: {
+            ...state.entities[itemId],
+            count: state.entities[itemId].count - 1
+          }
+        }, state)
+      }
+    })
 );
 
 export function cartReducer(state: CartState | undefined, action: Action) {

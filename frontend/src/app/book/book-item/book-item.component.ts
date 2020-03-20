@@ -19,11 +19,7 @@ export class BookItemComponent {
 
   constructor(private router: Router, private store: Store<RootState>) {
   }
-
-  navigateToBookView(id: number) {
-    this.router.navigateByUrl("book/" + id);
-  }
-
+  
   addToCart(book: Book) {
     this.store.dispatch(addBookToCart({addedBook: book}))
   }

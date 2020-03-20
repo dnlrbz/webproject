@@ -16,13 +16,4 @@ export class HeaderComponent {
 
   constructor(private router: Router, private store: Store<RootState>) {
   }
-
-  navigateToHome() {
-    this.router.navigateByUrl('/books');
-  }
-
-  navigateToCart() {
-    this.router.navigateByUrl('/cart');
-  }
-
 }

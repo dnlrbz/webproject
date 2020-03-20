@@ -11,12 +11,15 @@ export const allCartItems = createSelector(
 
 export const cartCount = createSelector(
     cartItems,
-    (cartItems) => cartItems.ids.length.toString()
+    (cartItems) => Object.values(cartItems.entities)
+    .reduce((sum: number, currentCartItem: CartItem) => {
+      return sum + currentCartItem.count;
+    }, 0).toString()
 );
 
 export const cartPrice = createSelector(
     cartItems,
     cartItems => Object.values(cartItems.entities).reduce((sum: number, currentCartItem: CartItem) => {
-      return sum + currentCartItem.price;
+      return sum + currentCartItem.price * currentCartItem.count;
     }, 0)
 );

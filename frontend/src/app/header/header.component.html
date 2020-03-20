@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
-  <button mat-button (click)="navigateToHome()">
+  <button mat-button [routerLink]="'/books'">
     <mat-icon>book</mat-icon>
     Book store
   </button>
-  <button mat-button (click)="navigateToCart()">
+  <button mat-button [routerLink]="'/cart'">
     <mat-icon [matBadge]="totalItemsAmount | async" matBadgeColor="warn">shopping_cart</mat-icon>
     <span class="button-text">Cart</span>
   </button>

@@ -1,0 +1,18 @@
+table {
+  width: 100%;
+
+  .row:hover {
+    cursor: pointer;
+    background-color: #c0ceff;
+  }
+
+  mat-icon {
+    vertical-align: middle;
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
+

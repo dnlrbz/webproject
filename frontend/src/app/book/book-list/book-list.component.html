@@ -3,9 +3,9 @@
     <mat-label>Search books</mat-label>
     <input matInput [(ngModel)]="filterValue">
   </mat-form-field>
-  <div *ngIf="books$ | async | bookFilter: filterValue as books" fxLayout="row"
-       fxLayoutAlign="space-around">
-    <book-item *ngFor="let book of books" [book]="book"></book-item>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around">
+    <book-item *ngFor="let book of books$ | async | bookFilter: filterValue; trackBy: trackByFn"
+               [book]="book"></book-item>
   </div>
 </div>
 <mat-spinner *ngIf="bookService.isLoading"></mat-spinner>

@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from "../service/book.service";
-import {Observable} from "rxjs";
 import {Book} from "../domain/book";
 import {Store} from "@ngrx/store";
 import {requestBooks} from "../../store/actions/book-actions";
 import {booksSelector} from "../../store/selectors/book-selectors";
 import {RootState} from "../../store/root-state";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'book-list',
@@ -13,7 +13,7 @@ import {RootState} from "../../store/root-state";
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-  public filterValue: string;
+  public filterValue: string = '';
 
   public books$: Observable<Book[]> = this.store.select(booksSelector);
 
@@ -22,7 +22,10 @@ export class BookListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(requestBooks());
+  }
 
+  trackByFn(index, item: Book) {
+    return item.id;
   }
 
 }
