@@ -5,7 +5,7 @@ backend/target
 target
 frontend/package-lock.json
 frontend/node/
-
+package-lock.json
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
