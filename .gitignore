@@ -3,7 +3,7 @@ backend/lib/
 frontend/node_modules
 backend/target
 target
-
+frontend/package-lock.json
 frontend/node/
 
 HELP.md

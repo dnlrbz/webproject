@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {State} from "../store/reducers/book-reducer";
-import {cartTotalAmount} from "../store/selectors/book-selectors";
 import {Observable} from "rxjs";
+import {cartCount} from "../store/selectors/cart-selectors";
+import {RootState} from "../store/root-state";
 
 @Component({
   selector: 'header',
@@ -12,13 +12,17 @@ import {Observable} from "rxjs";
 })
 export class HeaderComponent {
 
-  totalItemsAmount: Observable<string> = this.store.select(cartTotalAmount);
+  totalItemsAmount: Observable<string> = this.store.select(cartCount);
 
-  constructor(private router: Router, private store: Store<State>) {
+  constructor(private router: Router, private store: Store<RootState>) {
   }
 
   navigateToHome() {
     this.router.navigateByUrl('/books');
+  }
+
+  navigateToCart() {
+    this.router.navigateByUrl('/cart');
   }
 
 }

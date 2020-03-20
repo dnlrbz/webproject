@@ -25,10 +25,11 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {BookFilterPipe} from './book/filter/book-filter.pipe';
 import {StoreModule} from "@ngrx/store";
-import {bookReducer} from "./store/reducers/book-reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {BookEffects} from "./store/effects/book-effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {CartComponent} from './cart/cart.component';
+import {reducers} from "./store/root-state";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
     BookItemComponent,
     BookDetailComponent,
     BookFilterPipe,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
     MatBadgeModule,
     MatProgressSpinnerModule,
     FormsModule,
-    StoreModule.forRoot({bookReducer}),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([BookEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25})
   ],

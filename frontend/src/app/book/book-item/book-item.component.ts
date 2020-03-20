@@ -2,8 +2,10 @@ import {Component, Input} from '@angular/core';
 import {Book} from "../domain/book";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {State} from "../../store/reducers/book-reducer";
-import {addBookToCart} from "../../store/actions/book-actions";
+
+import {addBookToCart} from "../../store/actions/cart-actions";
+import {RootState} from "../../store/root-state";
+
 
 @Component({
   selector: 'book-item',
@@ -15,7 +17,7 @@ export class BookItemComponent {
   @Input()
   book: Book;
 
-  constructor(private router: Router, private store: Store<State>) {
+  constructor(private router: Router, private store: Store<RootState>) {
   }
 
   navigateToBookView(id: number) {
