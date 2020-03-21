@@ -31,7 +31,8 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {CartComponent} from './cart/cart.component';
 import {reducers} from "./store/root-state";
 import {OrderDialogComponent} from './cart/order-dialog/order-dialog.component';
-import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from "@angular/material/dialog";
+import {OrderService} from "./cart/services/order.service";
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dia
   ],
   providers: [
     BookService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    OrderService,
   ],
   bootstrap: [AppComponent]
 })

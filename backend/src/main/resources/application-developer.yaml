@@ -18,8 +18,6 @@ spring:
     rest:
       base-path: /api/web
 
-
 server:
   port: 8080
-
 

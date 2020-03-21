@@ -17,6 +17,11 @@ export const cartCount = createSelector(
     }, 0).toString()
 );
 
+export const cartItemsIdList = createSelector(
+    cartItems,
+    cartItems => cartItems.ids
+);
+
 export const cartPrice = createSelector(
     cartItems,
     cartItems => Object.values(cartItems.entities).reduce((sum: number, currentCartItem: CartItem) => {

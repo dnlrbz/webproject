@@ -1,7 +1,7 @@
 import {Book} from "../../book/domain/book";
 import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
 import {Action, createReducer, on} from "@ngrx/store";
-import {addBookToCart, decreaseItem, increaseItem} from "../actions/cart-actions";
+import {addBookToCart, decreaseItem, deleteAllItems, increaseItem} from "../actions/cart-actions";
 
 export interface CartItem extends Book {
   count: number;
@@ -56,7 +56,9 @@ const reducer = createReducer(
           }
         }, state)
       }
-    })
+    }),
+
+    on(deleteAllItems, () => cartItemAdapter.getInitialState())
 );
 
 export function cartReducer(state: CartState | undefined, action: Action) {
