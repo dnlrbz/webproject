@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {Book} from "../domain/book";
-import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 
 import {addBookToCart} from "../../store/actions/cart-actions";
@@ -17,9 +16,9 @@ export class BookItemComponent {
   @Input()
   book: Book;
 
-  constructor(private router: Router, private store: Store<RootState>) {
+  constructor(private store: Store<RootState>) {
   }
-  
+
   addToCart(book: Book) {
     this.store.dispatch(addBookToCart({addedBook: book}))
   }

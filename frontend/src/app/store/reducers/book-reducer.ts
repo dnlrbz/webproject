@@ -1,6 +1,6 @@
 import {Book} from "../../book/domain/book";
 import {Action, createReducer, on} from "@ngrx/store";
-import {requestBooks, succeedRequestBooks} from "../actions/book-actions";
+import {succeedRequestBooks} from "../actions/book-actions";
 
 
 export const initialState: Book[] = [];
@@ -8,9 +8,7 @@ export const initialState: Book[] = [];
 const reducer = createReducer(
     initialState,
 
-    on(requestBooks, state => ({...state})),
-
-    on(succeedRequestBooks, (state, {requestedBooks}) => (requestedBooks))
+    on(succeedRequestBooks, (state, {requestedBooks}) => ([...requestedBooks]))
 );
 
 
