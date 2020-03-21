@@ -30,6 +30,8 @@ import {BookEffects} from "./store/effects/book-effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {CartComponent} from './cart/cart.component';
 import {reducers} from "./store/root-state";
+import {OrderDialogComponent} from './cart/order-dialog/order-dialog.component';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import {reducers} from "./store/root-state";
     BookDetailComponent,
     BookFilterPipe,
     CartComponent,
+    OrderDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,10 +65,12 @@ import {reducers} from "./store/root-state";
     FormsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([BookEffects]),
-    StoreDevtoolsModule.instrument({maxAge: 25})
+    StoreDevtoolsModule.instrument({maxAge: 25}),
+    MatDialogModule,
   ],
   providers: [
-    BookService
+    BookService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent]
 })

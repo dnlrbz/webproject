@@ -1,0 +1,16 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <h3>Total order price: {{data.totalPrice | currency: 'EUR'}}</h3>
+  <form [formGroup]="emailForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+  </form>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button type="submit" color="primary" [disabled]="!emailForm.valid" mat-button
+            [mat-dialog-close]="emailForm.get('email').value">
+      Send order
+    </button>
+  </div>
+</div>

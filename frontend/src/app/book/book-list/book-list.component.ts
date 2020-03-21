@@ -25,9 +25,6 @@ export class BookListComponent implements OnInit {
   }
 
   trackByFn(index, item: Book) {
-    if (!item) {
-      return null;
-    }
     return item.id;
   }
 
