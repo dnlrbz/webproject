@@ -15,6 +15,6 @@ public class OrderWebController {
     @PostMapping("/send")
     public void sendRequest(@RequestBody Order order)
     {
-        //TODO send an email
+        System.out.println(order);
     }
 }

@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  database:
+    image: mysql
+    restart: on-failure
+    environment:
+      MYSQL_USER: webshop
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: webproject
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - app-network
+
+  backend:
+    depends_on:
+      - database
+    restart: on-failure
+    links:
+      - database
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    environment:
+      - "SPRING_PROFILES_ACTIVE=developer"
+    ports:
+      - 8080:8080
+    networks:
+      - app-network
+
+networks:
+  app-network:
