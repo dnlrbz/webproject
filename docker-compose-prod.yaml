@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  database:
+    container_name: database
+    image: mysql
+    restart: on-failure
+    environment:
+      MYSQL_USER: webshop
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: webproject
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+    volumes:
+      - my-volume:/var/lib/mysql
+
+  backend:
+    container_name: backend
+    image: dnlrbz/webproject_backend:v1
+    depends_on:
+      - database
+    restart: on-failure
+    links:
+      - database
+    environment:
+      - "SPRING_PROFILES_ACTIVE=developer"
+    ports:
+      - 8080:8080
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  my-volume:
