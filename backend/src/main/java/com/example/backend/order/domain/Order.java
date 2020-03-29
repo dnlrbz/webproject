@@ -9,6 +9,10 @@ public class Order {
     private String email;
     private Double totalPrice;
 
+    private Order()
+    {
+    }
+
     public Order(List<Long> itemIds, String email, Double totalPrice)
     {
         this.itemIds = itemIds == null ? Collections.emptyList() : itemIds;
