@@ -17,6 +17,9 @@ spring:
   data:
     rest:
       base-path: /api/web
+  mail:
+    username: test.sender@test.com
+    password: test-password
 
 
 server:
