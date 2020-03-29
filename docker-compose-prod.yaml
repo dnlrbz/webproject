@@ -29,12 +29,15 @@ services:
     environment:
       - "SPRING_PROFILES_ACTIVE=developer"
     ports:
-      - 8080:8080
+      - 80:8080
     networks:
       - app-network
 
 networks:
   app-network:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
 
 volumes:
   my-volume:
