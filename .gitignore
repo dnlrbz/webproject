@@ -1,7 +1,9 @@
 .idea/
 backend/lib/
+backend/src/main/resources/static
 frontend/node_modules
 backend/target
+frontend/target
 target
 frontend/package-lock.json
 frontend/node/

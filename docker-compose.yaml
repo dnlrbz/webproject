@@ -3,6 +3,7 @@ version: '3'
 services:
 
   database:
+    container_name: database
     image: mysql
     restart: on-failure
     environment:
@@ -10,10 +11,15 @@ services:
       MYSQL_PASSWORD: admin
       MYSQL_DATABASE: webproject
       MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306:3306
     networks:
       - app-network
+    volumes:
+      - my-volume:/var/lib/mysql
 
   backend:
+    container_name: backend
     depends_on:
       - database
     restart: on-failure
@@ -24,10 +30,28 @@ services:
       dockerfile: Dockerfile
     environment:
       - "SPRING_PROFILES_ACTIVE=developer"
+      # remove port for production
     ports:
       - 8080:8080
     networks:
       - app-network
 
+#  frontend:
+#    container_name: frontend
+#    restart: on-failure
+#    links:
+#      - backend
+#    build:
+#      context: ./frontend/
+#      dockerfile: Dockerfile
+#    networks:
+#      - app-network
+#    ports:
+#      - 80:80
+#      - 443:443
+
 networks:
   app-network:
+
+volumes:
+  my-volume:
