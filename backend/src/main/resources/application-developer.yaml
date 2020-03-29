@@ -4,7 +4,8 @@ spring:
   profiles:
     active: developer
   datasource:
-    url: jdbc:mysql://database:3306/webproject
+    # url: jdbc:mysql://database:3306/webproject
+    url: jdbc:mysql://localhost:3306/webproject?serverTimezone=UTC
     username: webshop
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,10 +15,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-    database: MYSQL
+    # database: MYSQL
   data:
     rest:
       base-path: /api/web
+
 
 server:
   port: 8080

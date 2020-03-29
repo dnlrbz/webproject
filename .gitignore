@@ -1,6 +1,6 @@
 .idea/
 backend/lib/
-backend/src/main/resources/static
+/backend/src/main/resources/static/*
 frontend/node_modules
 backend/target
 frontend/target
@@ -39,4 +39,3 @@ build/
 
 ### VS Code ###
 .vscode/
-

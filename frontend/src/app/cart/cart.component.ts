@@ -7,7 +7,7 @@ import {RootState} from "../store/root-state";
 import {decreaseItem, deleteAllItems, increaseItem} from "../store/actions/cart-actions";
 import {OrderDialogComponent} from "./order-dialog/order-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {switchMap, tap} from "rxjs/operators";
+import {switchMap, take, tap} from "rxjs/operators";
 import {OrderService} from "./services/order.service";
 import {Order} from "./domain/order";
 
@@ -60,6 +60,7 @@ export class CartComponent implements OnInit {
 
   sendOrder(email: string) {
     this.store.select(cartItemsIdList).pipe(
+        take(1),
         switchMap((ids: number[]) => {
           const order = new Order(this.totalPrice, ids, email);
           return this.orderService.sendOrder(order);
