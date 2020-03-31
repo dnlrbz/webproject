@@ -6,6 +6,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 
@@ -14,9 +15,15 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
+    public void addViewControllers(ViewControllerRegistry registry)
+    {
+        registry.addViewController("/").setViewName("redirect:/index.html");
+    }
+
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry)
     {
-        registry.addResourceHandler("/**")
+        registry.addResourceHandler("/**/*")
             .addResourceLocations("classpath:/static/")
             .resourceChain(true)
             .addResolver(new PathResourceResolver() {
@@ -27,8 +34,7 @@ public class WebConfig implements WebMvcConfigurer {
                     Resource requestedResource = location.createRelative(resourcePath);
 
                     return requestedResource.exists() && requestedResource.isReadable()
-                        ? requestedResource
-                        : new ClassPathResource("/static/index.html");
+                        ? requestedResource : new ClassPathResource("/static/index.html");
                 }
             });
     }
