@@ -1,10 +1,10 @@
-<div *ngIf="book$ | async as book" fxLayout="row" fxLayoutAlign="space-around stretch">
-  <img [src]="book.imageUrl" alt="book cover"/>
+<div *ngIf="book$ | async as book">
   <mat-card fxLayout="column" fxLayoutAlign="space-around center">
-    <h2>{{book.title}}</h2>
-    <h3>{{book.author}}</h3>
-    <h4>{{book.price | currency:'EUR'}}</h4>
-    <p>{{book.description}}</p>
+    <img [src]="book.imageUrl" alt="book cover" fxFlex="20"/>
+    <h2 fxFlex>{{book.title}}</h2>
+    <h3 fxFlex>{{book.author}}</h3>
+    <h4 fxFlex>{{book.price | currency:'EUR'}}</h4>
+    <p fxFlex="40">{{book.description}}</p>
   </mat-card>
 </div>
 <mat-spinner *ngIf="bookService.isLoading"></mat-spinner>

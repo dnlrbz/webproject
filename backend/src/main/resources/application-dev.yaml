@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: webproject
+  profiles:
+    active: developer
+  datasource:
+    # url: jdbc:mysql://database:3306/webproject
+    url: jdbc:mysql://localhost:3306/webproject?serverTimezone=UTC
+    username: webshop
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    database: MYSQL
+  data:
+    rest:
+      base-path: /api/web
+  mail:
+    username: "bookshop.do.not.reply@gmail.com"
+    password: "pbodjziojdiyxeri"
+
+
+server:
+  port: 8080
+
