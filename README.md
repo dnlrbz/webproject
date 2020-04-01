@@ -1,4 +1,4 @@
-# Book store web app
+# Book store web app http://3.19.232.139/index.html
 ## Springboot & Angular web project
 ### Technologies:
 - java 11
