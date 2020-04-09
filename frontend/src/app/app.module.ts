@@ -68,6 +68,7 @@ import {OrderService} from "./cart/services/order.service";
     EffectsModule.forRoot([BookEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25}),
     MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [
     BookService,

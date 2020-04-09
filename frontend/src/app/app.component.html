@@ -1,2 +1,5 @@
 <header></header>
-<router-outlet></router-outlet>
+<main [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
+
