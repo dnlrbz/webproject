@@ -4,8 +4,16 @@ html, body {
   height: 100%;
 }
 
+header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100% !important;
+}
+
 main {
   position: relative;
+  top: 60px;
 }
 
 body {
